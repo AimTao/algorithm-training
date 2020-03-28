@@ -7,12 +7,12 @@ int main(){
     cin  >> a[0];
     int min, max, sum;
     sum = min = max = a[0];
-    for(int i = 1; i < n; i++){
+    for (int i = 1; i < n; i++) {
         cin >> a[i];
-        if(min > a[i]){
+        if (min > a[i]) {
             min = a[i];
         }
-        if(max < a[i]){
+        if (max < a[i]) {
             max = a[i];
         }
         sum += a[i];

@@ -15,30 +15,30 @@ int main(){
     m["111"] = "7";
     int n;
     cin >> n;
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         string s16 = "", s2 = "", s8 = "";
         cin >> s16;
-        for(int j = 0; j < s16.size(); j++){
-            if(s16[j] > '9'){
+        for (int j = 0; j < s16.size(); j++) {
+            if (s16[j] > '9') {
                 s2 += a[s16[j] - 'A' + 10];
-            }else{
+            } else {
                 s2 += a[s16[j] - '0'];
             }
         }
-        if(s2.size() % 3 == 1){
+        if (s2.size() % 3 == 1) {
             s2 = "00" + s2;
-        }else if(s2.size() % 3 == 2){
+        } else if (s2.size() % 3 == 2) {
             s2 = "0" + s2;
         }
         int flag = 0;
-        for(int j = 0; j < s2.size(); j += 3){
+        for (int j = 0; j < s2.size(); j += 3) {
             string tmp = s2.substr(j, 3);
             s8 += m[tmp];    
-            if(j == 0 && m[tmp] == "0"){
+            if (j == 0 && m[tmp] == "0") {
                 flag = 1;
             }
         }
-        if(flag){
+        if (flag) {
             s8 = s8.substr(1);
         }
         cout << s8;
