@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int main(){
+int main() {
     const int N = 1000001;
     int f[N] = {0};
     f[1] = f[2] = 1;

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int main(){
+int main() {
     for (int i = 100; i < 1000; i++) {
         int a = i % 10;
         int b = i / 10 % 10;
