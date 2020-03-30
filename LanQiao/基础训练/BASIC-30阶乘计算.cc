@@ -4,32 +4,45 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    int a[n];
-    for (int i = 0; i < n; i++) {
-        a[i] = 0;
-    }
-    a[0] = 1; 
-    vector<int> flag;
+    vector<int> ans, flag;
+    ans.push_back(1);
     flag.push_back(0);
-    for (int i = 1; i <= n; i++) {
-        flag[0] = 0;
-        for (int j = 1; j < flag.size(); j++) {
+    for (int i = 2; i <= n; i++) {
+        int lens = ans.size();
+        for (int j = 0; j < lens; j++) {
+            ans[j] = i * ans[j] + flag[j];
             flag[j] = 0;
-        }
-        for (int j = 0; j < n; j++) {
-            if (i * a[j] > 10){
-                flag.push_back(i * a[j] / 10);
-                a[j] = i * a[j] % 10;
+            if (ans[j] >= 10) {
+                if (flag.size() - 1 == j) {
+                    flag.push_back(ans[j] / 10);
+                } else {
+                    flag[j + 1] = ans[j] / 10;
+                }
+                ans[j] %= 10;
             } else {
-                a[j] = i * a[j];
-            } 
+                if (flag.size() - 1 == j) {
+                    flag.push_back(0);
+                } else {
+                    flag[j + 1] = 0;
+                }
+            }
         }
-        for (int j = 0; j < n; j++) {
-            a[j] += flag[j];
-            if (a[j] > 10) {
-                a[j + 1]++;
-                a[j] -= 10;
+        while (flag[flag.size() - 1]) {
+            ans.push_back(flag[flag.size() - 1]);
+            if (ans[ans.size() - 1] >= 10) {
+                flag.push_back(ans[ans.size() - 1] / 10);
+                ans[ans.size() - 1] %= 10;
+            } else {
+                flag.push_back(0);
             }
         }
     }
+    for (int i = ans.size() - 1; i >= 0; i--) {
+        cout << ans[i];
+    }
+    return 0;
 }
+/*
+用 ans 表示 每一位的数值
+用 flag 表示 每次进位的数值
+*/
