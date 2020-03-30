@@ -1,3 +1,5 @@
+// 思路分析见 https://www.aimtao.net/categories/Mark/Lan-Qiao/
+
 #include <iostream>
 using namespace std;
 int main() {
@@ -28,3 +30,7 @@ int main() {
     }
     return 0;
 }
+/*
+易错：
+a[10000] 的数组长度，1000不够大，需要10000。
+*/

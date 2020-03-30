@@ -1,3 +1,5 @@
+// 思路分析见 https://www.aimtao.net/categories/Mark/Lan-Qiao/
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,8 +10,7 @@ int main() {
     ans.push_back(1);
     flag.push_back(0);
     for (int i = 2; i <= n; i++) {
-        int lens = ans.size();
-        for (int j = 0; j < lens; j++) {
+        for (int j = 0; j < ans.size(); j++) {
             ans[j] = i * ans[j] + flag[j];
             flag[j] = 0;
             if (ans[j] >= 10) {
@@ -43,6 +44,7 @@ int main() {
     return 0;
 }
 /*
-用 ans 表示 每一位的数值
-用 flag 表示 每次进位的数值
+易错：
+29-36行，对ans的最高位进位的操作必不可少，否则下一轮，最高位的乘法的结果会爆
+i-- 别写成 i++
 */
