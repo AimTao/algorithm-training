@@ -2,10 +2,8 @@
 using namespace std;
 int main() {
     const int n = 1000;
-    int a[n], b[n];
-    for (int i = 0; i < n; i++) {
-        a[i] = b[i] = 0;
-    }
+    int a[n] = {0};
+    int b[n] = {0};
     string s1, s2;
     cin >> s1 >> s2;
     for (int i = 0; i < s1.size(); i++) {
@@ -15,13 +13,8 @@ int main() {
         b[i] = s2[s2.size() - 1 - i] - '0';
     }
     for (int i = 0; i < n; i++) {
-        a[i] += b[i];
-    }
-    for (int i = 0; i < n; i++) {
-        if (a[i] > 9) {
-            a[i + 1] += a[i] / 10;
-            a[i] = a[i] % 10;
-        }
+            a[i + 1] += (a[i] + b[i]) / 10;
+            a[i] = (a[i] + b[i]) % 10;
     }
     int tmp = 1;
     for (int i = n - 1; i >= 0; i--) {
