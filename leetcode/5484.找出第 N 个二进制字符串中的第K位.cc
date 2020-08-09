@@ -4,11 +4,6 @@
 #include <algorithm>
 using namespace std;
 
-string MyReverse(string s) {
-    reverse(s.begin(),s.end());
-    return s;
-}
-
 string& MyInvert(string &s) {
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '1') {
