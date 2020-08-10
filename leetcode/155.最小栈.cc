@@ -10,22 +10,22 @@ public:
     
     void push(int x) {
         min_num.push(min(min_num.top(), x));
-        a.push(x);
+        data.push(x);
     }
     
     void pop() {
-        a.pop();
+        data.pop();
         min_num.pop();
     }
     
     int top() {
-        return a.top();
+        return data.top();
     }
     
     int getMin() {
         return min_num.top();
     }
 private:
-    stack<int> a;
+    stack<int> data;
     stack<int> min_num;
 };
